@@ -1,0 +1,27 @@
+<div class="container">
+  <div class ="row">
+    <div class="col">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" 
+        class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" #emailAddress/>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Email Body</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" #emailBody></textarea>
+      </div>
+      <button type="button" class=" mb-3 btn btn-primary" (click)="onSubmitHandler()">send email</button>
+
+      <button (click)="togglrStatus()" class="btn btn-info mb-3">
+        Toggle Status
+      </button>
+      <div class="alert alert-success"
+      *ngIf="isOnline; else offlineTemplate">
+    User is online!</div>
+    <ng-templete #offlineTemplate>
+      <div class ="alert alert-danger" role="alert">User is offline</div>
+    </ng-templete>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
